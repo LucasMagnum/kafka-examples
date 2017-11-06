@@ -6,7 +6,7 @@ Simple Kafka consumers and producers examples.
 
 # Examples
 
-    - [ ] Produce a raw string and consume it
+    - [x] Produce a raw string and consume it
     - [ ] Produce a dict/list and consume it
     - [ ] Produce a message following a schema and consume it
 

@@ -11,9 +11,7 @@ def create_consumer():
     })
 
 
-if __name__ == '__main__':
-    topic = 'example-topic'
-
+def consume_topic(topic, callback):
     consumer = create_consumer()
     consumer.subscribe([topic])
 
@@ -21,7 +19,7 @@ if __name__ == '__main__':
         message = consumer.poll()
 
         if not message.error():
-            print("Received message: %s" % message.value().decode('utf-8'), type(message.value()))
+            callback(message.value())
 
         elif message.error().code() != KafkaError._PARTITION_EOF:
             print(message.error())
